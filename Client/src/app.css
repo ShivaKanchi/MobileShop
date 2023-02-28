@@ -1,0 +1,140 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    padding: 20px;
+    z-index: 1;
+}
+
+header h1 {
+    margin: 0;
+    flex: 1;
+}
+
+header nav {
+    flex: 1;
+    text-align: right;
+    padding: 20px;
+}
+
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    margin-top: 80px;
+}
+
+/* Hero Section Styles */
+section#home {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+
+section#home h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Services Section Styles */
+section#services {
+    padding: 20px;
+}
+
+section#services h3 {
+    margin-top: 0;
+}
+
+section#services ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* About Us Section Styles */
+section#about {
+    padding: 20px;
+}
+
+section#about h3 {
+    margin-top: 0;
+}
+
+/* Testimonials Section Styles */
+section#testimonials {
+    padding: 20px;
+    text-align: center;
+}
+
+section#testimonials h3 {
+    margin-top: 0;
+}
+
+/* Contact Us Section Styles */
+section#contact {
+    padding: 20px;
+}
+
+section#contact h3 {
+    margin-top: 0;
+}
+
+section#contact form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
