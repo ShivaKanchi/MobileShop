@@ -1,2 +1,0 @@
-# MobileShop
-MERN stack app
