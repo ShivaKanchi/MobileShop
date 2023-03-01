@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for MobileShop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShivaKanchi/MobileShop.git"
+  },
+  "author": "ShivaKanchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShivaKanchi/MobileShop/issues"
+  },
+  "homepage": "https://github.com/ShivaKanchi/MobileShop#readme"
+}
