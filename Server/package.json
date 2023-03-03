@@ -4,7 +4,9 @@
   "description": "Server for MobileShop",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel ./src -d dist",
+    "start": "npm run build && node dist/index.js",
+    "dev": "nodemon --exec babel-node ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/ShivaKanchi/MobileShop/issues"
   },
-  "homepage": "https://github.com/ShivaKanchi/MobileShop#readme"
+  "homepage": "https://github.com/ShivaKanchi/MobileShop#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "nodemon": "^2.0.21"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
