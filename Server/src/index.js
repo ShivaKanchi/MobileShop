@@ -1,7 +1,6 @@
 import express from 'express';
 
-const mobileshop = express(); //like app  
-
+const mobileshop = express();
 
 mobileshop.use(express.json());
 
