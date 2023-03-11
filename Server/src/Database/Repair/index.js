@@ -4,6 +4,9 @@ const RepairSchema = new mongoose.Schema({
     issue: { type: Number, required: true },
     issueddate: { type: String, },
     availdate: { type: String, },
+    customername: { type: String, },
+    customerphone: { type: Number, },
+    customer: { type: Ob }
 
 })
 export const RepairModel = mongoose.model("mobiles", RepairSchema)
