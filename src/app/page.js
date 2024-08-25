@@ -1,9 +1,9 @@
-import styles from "@/styles/page.module.css";
+import styles from "@/styles/page/page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <>
       <h1 className={styles.center}>Home</h1>
-    </main>
+    </>
   );
 }
