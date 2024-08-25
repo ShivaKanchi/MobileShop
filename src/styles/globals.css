@@ -39,10 +39,14 @@
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
 
+  --max-w: 1600px;
   /* Colors */
   --c-white: #fff;
   --c-black: #333;
-  /* Size */
+  /* Spaces */
+  --container-padding: 24px;
+  --space-2: 2px;
+  --space-12: 12px;
 }
 
 @media (prefers-color-scheme: dark) {

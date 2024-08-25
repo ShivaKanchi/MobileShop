@@ -3,4 +3,35 @@
   top: 0;
   width: 100%;
   border-bottom: 1px solid var(--c-white);
+  padding: var(--space-12) var(--container-padding);
+  display: flex;
+  justify-content: space-between;
+  max-width: var(--max-w);
+}
+
+.logoWrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.navWrapper {
+  display: inline;
+}
+
+.navList {
+  display: flex;
+  gap: var(--space-12);
+}
+
+.navLink:hover {
+  text-decoration: underline;
+  text-underline-offset: var(--space-2);
+}
+
+@media screen and (max-width: 768px) {
+  .navList {
+    display: none;
+  }
 }

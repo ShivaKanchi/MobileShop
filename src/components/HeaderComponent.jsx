@@ -4,22 +4,22 @@ import Link from "next/link";
 export default function HeaderComponent() {
   return (
     <header className={styles.header}>
-      <Link href="/" className={styles.logoWrapper}>
+      <Link href="/" passHref className={styles.logoWrapper}>
         <span>Mobile Shop</span>
       </Link>
 
       <div className={styles.navWrapper}>
         <nav className={styles.navList}>
-          <Link href="products" className={styles.navLink}>
+          <Link href="products" passHref className={styles.navLink}>
             Products
           </Link>
-          <Link href="about" className={styles.navLink}>
+          <Link href="about" passHref className={styles.navLink}>
             About
           </Link>
-          <Link href="services" className={styles.navLink}>
+          <Link href="services" passHref className={styles.navLink}>
             Services
           </Link>
-          <Link href="contact" className={styles.navLink}>
+          <Link href="contact" passHref className={styles.navLink}>
             Contact
           </Link>
         </nav>
