@@ -1,3 +1,3 @@
-export default function about() {
+export default function AboutSection() {
   return <div>about</div>;
 }

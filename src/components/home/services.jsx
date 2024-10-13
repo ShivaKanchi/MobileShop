@@ -1,3 +1,3 @@
-export default function services() {
+export default function ServicesSection() {
   return <div>services</div>;
 }
