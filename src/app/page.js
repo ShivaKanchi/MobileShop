@@ -3,7 +3,7 @@ import AboutSection from "@/components/home/About";
 import ContactSection from "@/components/home/Contact";
 import ServicesSection from "@/components/home/Services";
 import styles from "@/styles/page/page.module.css";
-
+import "@/styles/globals.scss";
 export default function Home() {
   return (
     <>
