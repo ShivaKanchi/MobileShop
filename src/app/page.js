@@ -2,7 +2,6 @@ import HeroCarousel from "@/components/common/HeroCarousel";
 import AboutSection from "@/components/home/About";
 import ContactSection from "@/components/home/Contact";
 import ServicesSection from "@/components/home/Services";
-import icesSection from "@/components/home/Services";
 import styles from "@/styles/page/page.module.css";
 
 export default function Home() {
