@@ -4,6 +4,67 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type HomeDocumentDataSlicesSlice = Hero2Slice;
+
+/**
+ * Content for Home documents
+ */
+interface HomeDocumentData {
+  /**
+   * Slice Zone field in *Home*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice> /**
+   * Meta Title field in *Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: home.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: home.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Home*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Home document from Prismic
+ *
+ * - **API ID**: `home`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HomeDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
+
 /**
  * Item in *Navigation → Links*
  */
@@ -183,6 +244,7 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | HomeDocument
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
@@ -258,6 +320,156 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *Hero2 → Default → Primary*
+ */
+export interface Hero2SliceDefaultPrimary {
+  /**
+   * eyebrowHeadline field in *Hero2 → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Eyebrow
+   * - **API ID Path**: hero_2.default.primary.eyebrowHeadline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  eyebrowHeadline: prismic.KeyTextField;
+
+  /**
+   * title field in *Hero2 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *Hero2 → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * image field in *Hero2 → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * callToActionLink field in *Hero2 → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.default.primary.callToActionLink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  callToActionLink: prismic.LinkField;
+}
+
+/**
+ * Default variation for Hero2 Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Hero2SliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<Hero2SliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Hero2 → Image Right → Primary*
+ */
+export interface Hero2SliceImageRightPrimary {
+  /**
+   * eyebrowHeadline field in *Hero2 → Image Right → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Eyebrow
+   * - **API ID Path**: hero_2.imageRight.primary.eyebrowHeadline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  eyebrowHeadline: prismic.KeyTextField;
+
+  /**
+   * title field in *Hero2 → Image Right → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.imageRight.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * description field in *Hero2 → Image Right → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.imageRight.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * image field in *Hero2 → Image Right → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.imageRight.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * callToActionLink field in *Hero2 → Image Right → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_2.imageRight.primary.callToActionLink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  callToActionLink: prismic.LinkField;
+}
+
+/**
+ * Image Right variation for Hero2 Slice
+ *
+ * - **API ID**: `imageRight`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Hero2SliceImageRight = prismic.SharedSliceVariation<
+  "imageRight",
+  Simplify<Hero2SliceImageRightPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Hero2*
+ */
+type Hero2SliceVariation = Hero2SliceDefault | Hero2SliceImageRight;
+
+/**
+ * Hero2 Shared Slice
+ *
+ * - **API ID**: `hero_2`
+ * - **Description**: Hero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type Hero2Slice = prismic.SharedSlice<"hero_2", Hero2SliceVariation>;
 
 /**
  * Primary content in *Image → Default → Primary*
@@ -674,8 +886,22 @@ declare module "@prismicio/client" {
     ): prismic.Client<AllDocumentTypes>;
   }
 
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>;
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>;
+  }
+
   namespace Content {
     export type {
+      HomeDocument,
+      HomeDocumentData,
+      HomeDocumentDataSlicesSlice,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
@@ -689,6 +915,12 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      Hero2Slice,
+      Hero2SliceDefaultPrimary,
+      Hero2SliceImageRightPrimary,
+      Hero2SliceVariation,
+      Hero2SliceDefault,
+      Hero2SliceImageRight,
       ImageSlice,
       ImageSliceDefaultPrimary,
       ImageSliceBannerPrimary,
