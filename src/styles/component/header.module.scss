@@ -16,11 +16,16 @@
   align-items: flex-start;
   flex-direction: column;
   font-weight: 700;
+  letter-spacing: -1px;
   .firstName {
     font-size: 24px;
+    // line-height: 20px;
   }
   .lastName {
     font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 14px;
   }
 }
 
