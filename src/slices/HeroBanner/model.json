@@ -25,6 +25,26 @@
             "label": "Subheading",
             "placeholder": ""
           }
+        },
+        "explorecta": {
+          "type": "Link",
+          "config": {
+            "label": "ExploreCTA",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null,
+            "allowText": true
+          }
+        },
+        "heroimage": {
+          "type": "Image",
+          "config": {
+            "label": "HeroImage",
+            "constraint": {
+              "width": null
+            },
+            "thumbnails": []
+          }
         }
       },
       "items": {}

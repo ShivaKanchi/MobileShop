@@ -94,6 +94,26 @@ export interface HeroBannerSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   subheading: prismic.KeyTextField;
+
+  /**
+   * ExploreCTA field in *HeroBanner → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.default.primary.explorecta
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  explorecta: prismic.LinkField;
+
+  /**
+   * HeroImage field in *HeroBanner → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.default.primary.heroimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  heroimage: prismic.ImageField<never>;
 }
 
 /**
