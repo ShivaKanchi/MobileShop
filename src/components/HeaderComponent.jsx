@@ -5,7 +5,8 @@ export default function HeaderComponent() {
   return (
     <header className={styles.header}>
       <Link href="/" passHref className={styles.logoWrapper}>
-        <span>Mobile Shop</span>
+        <span className={styles.firstName}>Sri Manjunatha Mobiles</span>
+        <p className={styles.lastName}>Sales and Services</p>
       </Link>
 
       <div className={styles.navWrapper}>

@@ -6,14 +6,22 @@
   padding: var(--space-12) var(--container-padding);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: var(--max-w);
 }
 
 .logoWrapper {
   display: flex;
   gap: 4px;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  font-weight: 700;
+  .firstName {
+    font-size: 24px;
+  }
+  .lastName {
+    font-size: 16px;
+  }
 }
 
 .navWrapper {
@@ -25,6 +33,9 @@
   gap: var(--space-12);
 }
 
+.navLink {
+  padding: 12px 0;
+}
 .navLink:hover {
   text-decoration: underline;
   text-underline-offset: var(--space-2);
