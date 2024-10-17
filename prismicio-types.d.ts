@@ -4,7 +4,25 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = HeroBannerSlice;
+interface GlobalnavDocumentData {}
+
+/**
+ * GlobalNav document from Prismic
+ *
+ * - **API ID**: `globalnav`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GlobalnavDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<GlobalnavDocumentData>,
+    "globalnav",
+    Lang
+  >;
+
+type HomepageDocumentDataSlicesSlice = FeaturedProductsSlice | HeroBannerSlice;
 
 /**
  * Content for Homepage documents
@@ -69,7 +87,129 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomepageDocument;
+export type AllDocumentTypes = GlobalnavDocument | HomepageDocument;
+
+/**
+ * Item in *FeaturedProducts → Default → Primary → FeaturedProducts*
+ */
+export interface FeaturedProductsSliceDefaultPrimaryFeaturedproductsItem {
+  /**
+   * ProductImage field in *FeaturedProducts → Default → Primary → FeaturedProducts*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_products.default.primary.featuredproducts[].productimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  productimage: prismic.ImageField<never>;
+
+  /**
+   * ProductTitle field in *FeaturedProducts → Default → Primary → FeaturedProducts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_products.default.primary.featuredproducts[].producttitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  producttitle: prismic.KeyTextField;
+
+  /**
+   * ProductBrand field in *FeaturedProducts → Default → Primary → FeaturedProducts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_products.default.primary.featuredproducts[].productbrand
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  productbrand: prismic.KeyTextField;
+
+  /**
+   * ProductDescription field in *FeaturedProducts → Default → Primary → FeaturedProducts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_products.default.primary.featuredproducts[].productdescription
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  productdescription: prismic.KeyTextField;
+
+  /**
+   * ProductPrice field in *FeaturedProducts → Default → Primary → FeaturedProducts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_products.default.primary.featuredproducts[].productprice
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  productprice: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *FeaturedProducts → Default → Primary*
+ */
+export interface FeaturedProductsSliceDefaultPrimary {
+  /**
+   * SectionTitle field in *FeaturedProducts → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_products.default.primary.sectiontitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sectiontitle: prismic.KeyTextField;
+
+  /**
+   * SectionDescription field in *FeaturedProducts → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_products.default.primary.sectiondescription
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sectiondescription: prismic.KeyTextField;
+
+  /**
+   * FeaturedProducts field in *FeaturedProducts → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_products.default.primary.featuredproducts[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  featuredproducts: prismic.GroupField<
+    Simplify<FeaturedProductsSliceDefaultPrimaryFeaturedproductsItem>
+  >;
+}
+
+/**
+ * Default variation for FeaturedProducts Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedProductsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturedProductsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FeaturedProducts*
+ */
+type FeaturedProductsSliceVariation = FeaturedProductsSliceDefault;
+
+/**
+ * FeaturedProducts Shared Slice
+ *
+ * - **API ID**: `featured_products`
+ * - **Description**: FeaturedProducts
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturedProductsSlice = prismic.SharedSlice<
+  "featured_products",
+  FeaturedProductsSliceVariation
+>;
 
 /**
  * Primary content in *HeroBanner → Default → Primary*
@@ -167,10 +307,17 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      GlobalnavDocument,
+      GlobalnavDocumentData,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      FeaturedProductsSlice,
+      FeaturedProductsSliceDefaultPrimaryFeaturedproductsItem,
+      FeaturedProductsSliceDefaultPrimary,
+      FeaturedProductsSliceVariation,
+      FeaturedProductsSliceDefault,
       HeroBannerSlice,
       HeroBannerSliceDefaultPrimary,
       HeroBannerSliceVariation,

@@ -1,0 +1,78 @@
+{
+  "id": "featured_products",
+  "type": "SharedSlice",
+  "name": "FeaturedProducts",
+  "description": "FeaturedProducts",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "sectiontitle": {
+          "type": "Text",
+          "config": {
+            "label": "SectionTitle",
+            "placeholder": ""
+          }
+        },
+        "sectiondescription": {
+          "type": "Text",
+          "config": {
+            "label": "SectionDescription",
+            "placeholder": ""
+          }
+        },
+        "featuredproducts": {
+          "type": "Group",
+          "config": {
+            "label": "FeaturedProducts",
+            "repeat": true,
+            "fields": {
+              "productimage": {
+                "type": "Image",
+                "config": {
+                  "label": "ProductImage",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "producttitle": {
+                "type": "Text",
+                "config": {
+                  "label": "ProductTitle",
+                  "placeholder": ""
+                }
+              },
+              "productbrand": {
+                "type": "Text",
+                "config": {
+                  "label": "ProductBrand",
+                  "placeholder": ""
+                }
+              },
+              "productdescription": {
+                "type": "Text",
+                "config": {
+                  "label": "ProductDescription",
+                  "placeholder": ""
+                }
+              },
+              "productprice": {
+                "type": "Text",
+                "config": {
+                  "label": "ProductPrice",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
