@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 /**
  * @typedef {import("@prismicio/client").Content.HeroBannerSlice} HeroBannerSlice
@@ -14,7 +14,8 @@ const HeroBanner = ({ slice }) => {
     >
       <h1>{slice.primary.heading}</h1>
       <span>{slice.primary.subheading}</span>
-      {/* <Link href={slice.primary.explorecta}>{slice.primary.explorecta}</Link> */}
+      <PrismicNextLink field={slice.primary.explorecta} />
+      <PrismicNextImage field={slice.primary.heroimage} />
     </section>
   );
 };
