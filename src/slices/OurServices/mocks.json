@@ -1,0 +1,53 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"sectiontitle": {
+				"__TYPE__": "FieldContent",
+				"value": "tube",
+				"type": "Text"
+			},
+			"sectiondescription": {
+				"__TYPE__": "FieldContent",
+				"value": "fight",
+				"type": "Text"
+			},
+			"services": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"servicetitle",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "done",
+									"type": "Text"
+								}
+							],
+							[
+								"servicedescription",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "tube",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"servicecta": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "shelter"
+				}
+			}
+		},
+		"items": []
+	}
+]

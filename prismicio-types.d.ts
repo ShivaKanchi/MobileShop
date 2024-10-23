@@ -22,7 +22,10 @@ export type GlobalnavDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomepageDocumentDataSlicesSlice = FeaturedProductsSlice | HeroBannerSlice;
+type HomepageDocumentDataSlicesSlice =
+  | OurServicesSlice
+  | FeaturedProductsSlice
+  | HeroBannerSlice;
 
 /**
  * Content for Homepage documents
@@ -286,6 +289,108 @@ export type HeroBannerSlice = prismic.SharedSlice<
   HeroBannerSliceVariation
 >;
 
+/**
+ * Item in *OurServices → Default → Primary → Services*
+ */
+export interface OurServicesSliceDefaultPrimaryServicesItem {
+  /**
+   * ServiceTitle field in *OurServices → Default → Primary → Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_services.default.primary.services[].servicetitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  servicetitle: prismic.KeyTextField;
+
+  /**
+   * ServiceDescription field in *OurServices → Default → Primary → Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_services.default.primary.services[].servicedescription
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  servicedescription: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *OurServices → Default → Primary*
+ */
+export interface OurServicesSliceDefaultPrimary {
+  /**
+   * SectionTitle field in *OurServices → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_services.default.primary.sectiontitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sectiontitle: prismic.KeyTextField;
+
+  /**
+   * SectionDescription field in *OurServices → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_services.default.primary.sectiondescription
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sectiondescription: prismic.KeyTextField;
+
+  /**
+   * Services field in *OurServices → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_services.default.primary.services[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  services: prismic.GroupField<
+    Simplify<OurServicesSliceDefaultPrimaryServicesItem>
+  >;
+
+  /**
+   * serviceCTA field in *OurServices → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: our_services.default.primary.servicecta
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  servicecta: prismic.LinkField;
+}
+
+/**
+ * Default variation for OurServices Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OurServicesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<OurServicesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *OurServices*
+ */
+type OurServicesSliceVariation = OurServicesSliceDefault;
+
+/**
+ * OurServices Shared Slice
+ *
+ * - **API ID**: `our_services`
+ * - **Description**: OurServices
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OurServicesSlice = prismic.SharedSlice<
+  "our_services",
+  OurServicesSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -322,6 +427,11 @@ declare module "@prismicio/client" {
       HeroBannerSliceDefaultPrimary,
       HeroBannerSliceVariation,
       HeroBannerSliceDefault,
+      OurServicesSlice,
+      OurServicesSliceDefaultPrimaryServicesItem,
+      OurServicesSliceDefaultPrimary,
+      OurServicesSliceVariation,
+      OurServicesSliceDefault,
     };
   }
 }
