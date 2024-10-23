@@ -11,11 +11,25 @@ const HeroBanner = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className="ui-hero-banner"
     >
-      <h1>{slice.primary.heading}</h1>
-      <span>{slice.primary.subheading}</span>
-      <PrismicNextLink field={slice.primary.explorecta} />
-      <PrismicNextImage field={slice.primary.heroimage} />
+      <div className="ui-hero-banner__content">
+        <h1 className="ui-hero-banner__heading">{slice.primary.heading}</h1>
+        <span className="ui-hero-banner__subHeading">
+          {slice.primary.subheading}
+        </span>
+        <PrismicNextLink
+          className="ui-hero-banner__cta"
+          field={slice.primary.explorecta}
+        />
+      </div>
+      <div className="ui-hero-banner__contentImage">
+        <div className="ui-hero-banner__imageWrapper"></div>
+        <PrismicNextImage
+          className="ui-hero-banner__image"
+          field={slice.primary.heroimage}
+        />
+      </div>
     </section>
   );
 };

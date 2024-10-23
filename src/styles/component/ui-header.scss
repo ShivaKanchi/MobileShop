@@ -1,0 +1,57 @@
+.ui-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid var(--c-white);
+  padding: var(--space-12) var(--container-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-w);
+  background-color: var(--bg-black);
+
+  &__logoWrapper {
+    display: flex;
+    gap: 4px;
+    align-items: flex-start;
+    flex-direction: column;
+    font-weight: 700;
+    letter-spacing: -1px;
+
+    &__firstName {
+      font-size: 24px;
+      // line-height: 20px;
+    }
+
+    &__lastName {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: 14px;
+    }
+  }
+
+  &__navWrapper {
+    display: inline;
+  }
+
+  &__navList {
+    display: flex;
+    gap: var(--space-12);
+  }
+
+  &__navLink {
+    padding: 12px 0;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: var(--space-2);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    &__navList {
+      display: none;
+    }
+  }
+}

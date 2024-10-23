@@ -1,4 +1,32 @@
-/* Spaces */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Variables */
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -44,6 +72,9 @@
   /* Colors */
   --c-white: #fff;
   --c-black: #333;
+  /* Backgrounds */
+  --bg-black: #000;
+
   /* Spaces */
   --container-padding: 24px;
   --space-2: 2px;
