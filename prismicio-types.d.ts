@@ -23,6 +23,7 @@ export type GlobalnavDocument<Lang extends string = string> =
   >;
 
 type HomepageDocumentDataSlicesSlice =
+  | CustomerReviewsSlice
   | OurServicesSlice
   | FeaturedProductsSlice
   | HeroBannerSlice;
@@ -91,6 +92,36 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes = GlobalnavDocument | HomepageDocument;
+
+/**
+ * Default variation for CustomerReviews Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CustomerReviewsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *CustomerReviews*
+ */
+type CustomerReviewsSliceVariation = CustomerReviewsSliceDefault;
+
+/**
+ * CustomerReviews Shared Slice
+ *
+ * - **API ID**: `customer_reviews`
+ * - **Description**: CustomerReviews
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CustomerReviewsSlice = prismic.SharedSlice<
+  "customer_reviews",
+  CustomerReviewsSliceVariation
+>;
 
 /**
  * Item in *FeaturedProducts → Default → Primary → FeaturedProducts*
@@ -418,6 +449,9 @@ declare module "@prismicio/client" {
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CustomerReviewsSlice,
+      CustomerReviewsSliceVariation,
+      CustomerReviewsSliceDefault,
       FeaturedProductsSlice,
       FeaturedProductsSliceDefaultPrimaryFeaturedproductsItem,
       FeaturedProductsSliceDefaultPrimary,
