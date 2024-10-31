@@ -1,8 +1,8 @@
 {
-  "id": "customer_reviews",
+  "id": "new_offers",
   "type": "SharedSlice",
-  "name": "CustomerReviews",
-  "description": "CustomerReviews",
+  "name": "NewOffers",
+  "description": "NewOffers",
   "variations": [
     {
       "id": "default",
@@ -26,35 +26,45 @@
             "placeholder": ""
           }
         },
-        "customerreviews": {
+        "offertitle": {
           "type": "Group",
           "config": {
-            "label": "CustomerReviews",
+            "label": "Offers",
             "repeat": true,
             "fields": {
-              "reviewtext": {
+              "offertitle": {
                 "type": "Text",
                 "config": {
-                  "label": "ReviewText",
+                  "label": "OfferTitle",
                   "placeholder": ""
                 }
               },
-              "reviewauthor": {
+              "offerdescription": {
                 "type": "Text",
                 "config": {
-                  "label": "ReviewAuthor",
+                  "label": "OfferDescription",
                   "placeholder": ""
                 }
               },
-              "reviewimage": {
+              "offerimage": {
                 "type": "Image",
                 "config": {
-                  "label": "ReviewImage",
+                  "label": "OfferImage",
                   "constraint": {},
                   "thumbnails": []
                 }
               }
             }
+          }
+        },
+        "offercta": {
+          "type": "Link",
+          "config": {
+            "label": "OfferCTA",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null,
+            "allowText": true
           }
         }
       },

@@ -4,6 +4,132 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AboutDocumentDataSlicesSlice = never;
+
+/**
+ * Content for About documents
+ */
+interface AboutDocumentData {
+  /**
+   * Slice Zone field in *About*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice> /**
+   * Meta Title field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: about.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: about.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *About*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * About document from Prismic
+ *
+ * - **API ID**: `about`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AboutDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
+
+type ContactDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Contact documents
+ */
+interface ContactDocumentData {
+  /**
+   * Slice Zone field in *Contact*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ContactDocumentDataSlicesSlice> /**
+   * Meta Title field in *Contact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: contact.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Contact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: contact.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Contact*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Contact document from Prismic
+ *
+ * - **API ID**: `contact`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContactDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ContactDocumentData>,
+    "contact",
+    Lang
+  >;
+
 interface GlobalnavDocumentData {}
 
 /**
@@ -91,7 +217,149 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = GlobalnavDocument | HomepageDocument;
+type ServicesDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Services documents
+ */
+interface ServicesDocumentData {
+  /**
+   * Slice Zone field in *Services*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ServicesDocumentDataSlicesSlice> /**
+   * Meta Title field in *Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: services.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: services.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Services*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Services document from Prismic
+ *
+ * - **API ID**: `services`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ServicesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ServicesDocumentData>,
+    "services",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | AboutDocument
+  | ContactDocument
+  | GlobalnavDocument
+  | HomepageDocument
+  | ServicesDocument;
+
+/**
+ * Item in *CustomerReviews → Default → Primary → CustomerReviews*
+ */
+export interface CustomerReviewsSliceDefaultPrimaryCustomerreviewsItem {
+  /**
+   * ReviewText field in *CustomerReviews → Default → Primary → CustomerReviews*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_reviews.default.primary.customerreviews[].reviewtext
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  reviewtext: prismic.KeyTextField;
+
+  /**
+   * ReviewAuthor field in *CustomerReviews → Default → Primary → CustomerReviews*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_reviews.default.primary.customerreviews[].reviewauthor
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  reviewauthor: prismic.KeyTextField;
+
+  /**
+   * ReviewImage field in *CustomerReviews → Default → Primary → CustomerReviews*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_reviews.default.primary.customerreviews[].reviewimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  reviewimage: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *CustomerReviews → Default → Primary*
+ */
+export interface CustomerReviewsSliceDefaultPrimary {
+  /**
+   * SectionTitle field in *CustomerReviews → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_reviews.default.primary.sectiontitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sectiontitle: prismic.KeyTextField;
+
+  /**
+   * SectionDescription field in *CustomerReviews → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_reviews.default.primary.sectiondescription
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sectiondescription: prismic.KeyTextField;
+
+  /**
+   * CustomerReviews field in *CustomerReviews → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_reviews.default.primary.customerreviews[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  customerreviews: prismic.GroupField<
+    Simplify<CustomerReviewsSliceDefaultPrimaryCustomerreviewsItem>
+  >;
+}
 
 /**
  * Default variation for CustomerReviews Slice
@@ -102,7 +370,7 @@ export type AllDocumentTypes = GlobalnavDocument | HomepageDocument;
  */
 export type CustomerReviewsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<CustomerReviewsSliceDefaultPrimary>,
   never
 >;
 
@@ -321,6 +589,118 @@ export type HeroBannerSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *NewOffers → Default → Primary → Offers*
+ */
+export interface NewOffersSliceDefaultPrimaryOffertitleItem {
+  /**
+   * OfferTitle field in *NewOffers → Default → Primary → Offers*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: new_offers.default.primary.offertitle[].offertitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  offertitle: prismic.KeyTextField;
+
+  /**
+   * OfferDescription field in *NewOffers → Default → Primary → Offers*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: new_offers.default.primary.offertitle[].offerdescription
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  offerdescription: prismic.KeyTextField;
+
+  /**
+   * OfferImage field in *NewOffers → Default → Primary → Offers*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: new_offers.default.primary.offertitle[].offerimage
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  offerimage: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *NewOffers → Default → Primary*
+ */
+export interface NewOffersSliceDefaultPrimary {
+  /**
+   * SectionTitle field in *NewOffers → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: new_offers.default.primary.sectiontitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sectiontitle: prismic.KeyTextField;
+
+  /**
+   * SectionDescription field in *NewOffers → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: new_offers.default.primary.sectiondescription
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sectiondescription: prismic.KeyTextField;
+
+  /**
+   * Offers field in *NewOffers → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: new_offers.default.primary.offertitle[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  offertitle: prismic.GroupField<
+    Simplify<NewOffersSliceDefaultPrimaryOffertitleItem>
+  >;
+
+  /**
+   * OfferCTA field in *NewOffers → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: new_offers.default.primary.offercta
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  offercta: prismic.LinkField;
+}
+
+/**
+ * Default variation for NewOffers Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewOffersSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NewOffersSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *NewOffers*
+ */
+type NewOffersSliceVariation = NewOffersSliceDefault;
+
+/**
+ * NewOffers Shared Slice
+ *
+ * - **API ID**: `new_offers`
+ * - **Description**: NewOffers
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewOffersSlice = prismic.SharedSlice<
+  "new_offers",
+  NewOffersSliceVariation
+>;
+
+/**
  * Item in *OurServices → Default → Primary → Services*
  */
 export interface OurServicesSliceDefaultPrimaryServicesItem {
@@ -443,13 +823,24 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AboutDocument,
+      AboutDocumentData,
+      AboutDocumentDataSlicesSlice,
+      ContactDocument,
+      ContactDocumentData,
+      ContactDocumentDataSlicesSlice,
       GlobalnavDocument,
       GlobalnavDocumentData,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      ServicesDocument,
+      ServicesDocumentData,
+      ServicesDocumentDataSlicesSlice,
       AllDocumentTypes,
       CustomerReviewsSlice,
+      CustomerReviewsSliceDefaultPrimaryCustomerreviewsItem,
+      CustomerReviewsSliceDefaultPrimary,
       CustomerReviewsSliceVariation,
       CustomerReviewsSliceDefault,
       FeaturedProductsSlice,
@@ -461,6 +852,11 @@ declare module "@prismicio/client" {
       HeroBannerSliceDefaultPrimary,
       HeroBannerSliceVariation,
       HeroBannerSliceDefault,
+      NewOffersSlice,
+      NewOffersSliceDefaultPrimaryOffertitleItem,
+      NewOffersSliceDefaultPrimary,
+      NewOffersSliceVariation,
+      NewOffersSliceDefault,
       OurServicesSlice,
       OurServicesSliceDefaultPrimaryServicesItem,
       OurServicesSliceDefaultPrimary,

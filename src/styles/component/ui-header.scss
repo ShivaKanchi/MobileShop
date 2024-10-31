@@ -12,11 +12,11 @@
 
   &__logoWrapper {
     display: flex;
-    gap: 4px;
+    // gap: 4px;
     align-items: flex-start;
     flex-direction: column;
     font-weight: 700;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
 
     &__firstName {
       font-size: 24px;

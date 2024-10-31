@@ -6,5 +6,6 @@ export const components = {
   customer_reviews: dynamic(() => import("./CustomerReviews")),
   featured_products: dynamic(() => import("./FeaturedProducts")),
   hero_banner: dynamic(() => import("./HeroBanner")),
+  new_offers: dynamic(() => import("./NewOffers")),
   our_services: dynamic(() => import("./OurServices")),
 };
