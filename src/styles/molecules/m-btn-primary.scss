@@ -1,0 +1,33 @@
+@mixin m-btn-primary {
+  display: flex;
+  min-width: 100px;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  color: var(--text-c-primary);
+  background-color: transparent;
+  border: 1px solid var(--text-c-primary);
+  border-radius: var(--space-8);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
+  &:hover {
+    background-color: var(--c-black);
+    color: var(--text-c-secondary);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.m-btn-primary {
+  @include m-btn-primary;
+}
