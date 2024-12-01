@@ -1,0 +1,119 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "Name",
+          "placeholder": ""
+        }
+      },
+      "subname": {
+        "type": "Text",
+        "config": {
+          "label": "SubName",
+          "placeholder": ""
+        }
+      },
+      "navlinks": {
+        "type": "Group",
+        "config": {
+          "label": "NavLinks",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "allowTargetBlank": false,
+                "select": null,
+                "allowText": true
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "ctalink": {
+        "type": "Link",
+        "config": {
+          "label": "CtaLink",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null,
+          "allowText": true
+        }
+      },
+      "ctalabel": {
+        "type": "Text",
+        "config": {
+          "label": "CtaLabel",
+          "placeholder": ""
+        }
+      },
+      "footertext": {
+        "type": "Text",
+        "config": {
+          "label": "FooterText",
+          "placeholder": ""
+        }
+      },
+      "instalink": {
+        "type": "Link",
+        "config": {
+          "label": "InstaLink",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null,
+          "allowText": true
+        }
+      },
+      "whatsapplink": {
+        "type": "Link",
+        "config": {
+          "label": "WhatsappLink",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null,
+          "allowText": true
+        }
+      }
+    },
+    "MetaData": {
+      "metatitle": {
+        "type": "Text",
+        "config": {
+          "label": "MetaTitle",
+          "placeholder": ""
+        }
+      },
+      "metadescription": {
+        "type": "Text",
+        "config": {
+          "label": "MetaDescription",
+          "placeholder": ""
+        }
+      },
+      "ogimage": {
+        "type": "Image",
+        "config": {
+          "label": "OgImage",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

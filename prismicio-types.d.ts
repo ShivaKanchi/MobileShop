@@ -130,24 +130,6 @@ export type ContactDocument<Lang extends string = string> =
     Lang
   >;
 
-interface GlobalnavDocumentData {}
-
-/**
- * GlobalNav document from Prismic
- *
- * - **API ID**: `globalnav`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type GlobalnavDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<GlobalnavDocumentData>,
-    "globalnav",
-    Lang
-  >;
-
 type HomepageDocumentDataSlicesSlice =
   | CustomerReviewsSlice
   | OurServicesSlice
@@ -282,12 +264,177 @@ export type ServicesDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Settings → NavLinks*
+ */
+export interface SettingsDocumentDataNavlinksItem {
+  /**
+   * Link field in *Settings → NavLinks*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.navlinks[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Label field in *Settings → NavLinks*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.navlinks[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+  /**
+   * Name field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * SubName field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.subname
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  subname: prismic.KeyTextField;
+
+  /**
+   * NavLinks field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.navlinks[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  navlinks: prismic.GroupField<Simplify<SettingsDocumentDataNavlinksItem>>;
+
+  /**
+   * CtaLink field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.ctalink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  ctalink: prismic.LinkField;
+
+  /**
+   * CtaLabel field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.ctalabel
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  ctalabel: prismic.KeyTextField;
+
+  /**
+   * FooterText field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footertext
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  footertext: prismic.KeyTextField;
+
+  /**
+   * InstaLink field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.instalink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  instalink: prismic.LinkField;
+
+  /**
+   * WhatsappLink field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.whatsapplink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  whatsapplink: prismic.LinkField /**
+   * MetaTitle field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.metatitle
+   * - **Tab**: MetaData
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  metatitle: prismic.KeyTextField;
+
+  /**
+   * MetaDescription field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.metadescription
+   * - **Tab**: MetaData
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  metadescription: prismic.KeyTextField;
+
+  /**
+   * OgImage field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.ogimage
+   * - **Tab**: MetaData
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  ogimage: prismic.ImageField<never>;
+}
+
+/**
+ * Settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SettingsDocumentData>,
+    "settings",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | AboutDocument
   | ContactDocument
-  | GlobalnavDocument
   | HomepageDocument
-  | ServicesDocument;
+  | ServicesDocument
+  | SettingsDocument;
 
 /**
  * Item in *CustomerReviews → Default → Primary → CustomerReviews*
@@ -829,14 +976,15 @@ declare module "@prismicio/client" {
       ContactDocument,
       ContactDocumentData,
       ContactDocumentDataSlicesSlice,
-      GlobalnavDocument,
-      GlobalnavDocumentData,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       ServicesDocument,
       ServicesDocumentData,
       ServicesDocumentDataSlicesSlice,
+      SettingsDocument,
+      SettingsDocumentData,
+      SettingsDocumentDataNavlinksItem,
       AllDocumentTypes,
       CustomerReviewsSlice,
       CustomerReviewsSliceDefaultPrimaryCustomerreviewsItem,

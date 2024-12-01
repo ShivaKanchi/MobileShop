@@ -6,12 +6,13 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  // background: linear-gradient(
+  //     to bottom,
+  //     transparent,
+  //     rgb(var(--background-end-rgb))
+  //   )
+  //   rgb(var(--background-start-rgb));
+  background-color: var(--bg-primary);
 }
 
 a {
@@ -73,7 +74,7 @@ a {
   --c-white: #fff;
   --c-black: #333;
   /* Backgrounds */
-  --bg-black: #000;
+  --bg-primary: #333;
 
   /* Spaces */
   --container-padding: 40px;

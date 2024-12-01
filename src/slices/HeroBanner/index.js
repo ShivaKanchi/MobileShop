@@ -3,6 +3,8 @@
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
+import Model from "./Model";
+
 /**
  * @typedef {import("@prismicio/client").Content.HeroBannerSlice} HeroBannerSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<HeroBannerSlice>} HeroBannerProps
@@ -102,11 +104,12 @@ const HeroBanner = ({ slice }) => {
           field={slice.primary.explorecta}
         />
       </div>
-      <div className="ui-hero-banner__imageWrapper animate-image">
-        <PrismicNextImage
-          className="ui-hero-banner__image"
+      <div className="ui-hero-banner__imageWrapper ">
+        {/* <PrismicNextImage
+          className="ui-hero-banner__image animate-image"
           field={slice.primary.heroimage}
-        />
+        /> */}
+        <Model />
       </div>
     </section>
   );
