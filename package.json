@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "slicemachine": "start-slicemachine",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "slicemachine": "start-slicemachine"
+    "lint": "next lint" 
   },
   "dependencies": {
     "@prismicio/client": "^7.11.0",

@@ -58,19 +58,19 @@ const HeroBanner = ({ slice }) => {
             opacity: 1,
             duration: 0.5,
           }
-        )
-        .fromTo(
-          ".animate-image",
-          {
-            y: 10,
-            opacity: 0,
-          },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-          }
         );
+      // .fromTo(
+      //   ".animate-image",
+      //   {
+      //     y: 10,
+      //     opacity: 0,
+      //   },
+      //   {
+      //     y: 0,
+      //     opacity: 1,
+      //     duration: 1,
+      //   }
+      // );
     }, animateComponents);
 
     return () => {

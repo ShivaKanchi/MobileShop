@@ -35,9 +35,20 @@
     display: inline;
   }
 
-  &__navList {
+  &__navList,
+  ul {
     display: flex;
     gap: var(--space-12);
+
+    ul,
+    li {
+      text-decoration: none;
+      margin: 0;
+      padding: 0;
+    }
+    .ui-header__navListItem {
+      list-style: none;
+    }
   }
 
   &__navLink {

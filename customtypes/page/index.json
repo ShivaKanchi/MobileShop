@@ -1,14 +1,27 @@
 {
   "format": "page",
-  "id": "services",
+  "id": "page",
+  "label": "page",
+  "repeatable": true,
+  "status": true,
   "json": {
     "Main": {
-      "slices": {
+      "uid": {
+        "type": "UID",
         "config": {
-          "choices": {}
-        },
+          "label": "page"
+        }
+      },
+      "slices": {
+        "type": "Slices",
         "fieldset": "Slice Zone",
-        "type": "Slices"
+        "config": {
+          "choices": {
+            "about": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     },
     "SEO & Metadata": {
@@ -38,8 +51,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "Services",
-  "repeatable": false,
-  "status": true
+  }
 }
