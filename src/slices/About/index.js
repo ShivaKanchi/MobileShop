@@ -15,10 +15,9 @@ const About = ({ slice }) => {
     >
       <div className="ui-about-wrapperLhs">
         <h1 className="ui-about-Heading">{slice.primary.heading}</h1>
-        <PrismicRichText
-          className="ui-about-description"
-          field={slice.primary.bodydescription}
-        />
+        <div className="ui-about-description">
+          <PrismicRichText field={slice.primary.bodydescription} />
+        </div>
         <div className="ui-about-actionWrapper">
           <PrismicNextLink
             className="ui-about-actionButton"
