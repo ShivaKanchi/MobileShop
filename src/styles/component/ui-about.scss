@@ -38,12 +38,11 @@
 
   &-actionWrapper {
     margin-top: 20px;
-
-    &-actionButton {
-      @include m-btn-primary;
-      @media screen and (max-width: 768px) {
-        margin: 0 auto;
-      }
+  }
+  &-actionButton {
+    @include m-btn-primary;
+    @media screen and (max-width: 768px) {
+      margin: 0 auto;
     }
   }
   &-wrapperRhs {
