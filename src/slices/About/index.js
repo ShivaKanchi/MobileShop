@@ -9,7 +9,7 @@ import { PrismicRichText } from "@prismicio/react";
 const About = ({ slice }) => {
   return (
     <section
-      className="ui-about-wrapper"
+      className="ui-about"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

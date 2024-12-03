@@ -1,45 +1,22 @@
 @import "../molecules/m-btn-primary.scss";
-
-.ui-hero-banner {
+.ui-about {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 40px;
   margin-top: var(--container-padding);
+
   @media screen and (max-width: 768px) {
     gap: 20px;
     flex-direction: column-reverse;
   }
-  &__content {
+
+  &-wrapperLhs {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 20px;
-    min-width: 45%;
   }
-
-  &__imageWrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    max-width: 50%;
-    flex-shrink: 0;
-    aspect-ratio: 500 / 370;
-    overflow: hidden;
-    border-radius: var(--border-radius-8);
-    @media screen and (max-width: 768px) {
-      max-width: 100%;
-    }
-  }
-
-  &__image {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-  &__heading {
+  &-Heading {
     font-size: clamp(3rem, 2vw, 2rem);
     line-height: 125%;
     text-wrap: pretty;
@@ -48,7 +25,7 @@
     }
   }
 
-  &__subHeading {
+  &-description {
     font-size: 1.2rem;
     margin-bottom: 40px;
     text-wrap: pretty;
@@ -59,10 +36,38 @@
     }
   }
 
-  &__cta {
-    @include m-btn-primary;
-    @media screen and (max-width: 768px) {
-      margin: 0 auto;
+  &-actionWrapper {
+    margin-top: 20px;
+
+    &-actionButton {
+      @include m-btn-primary;
+      @media screen and (max-width: 768px) {
+        margin: 0 auto;
+      }
     }
+  }
+  &-wrapperRhs {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &-imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 500 / 370;
+    overflow: hidden;
+    border-radius: var(--border-radius-8);
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+  &-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }

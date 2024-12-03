@@ -16,7 +16,10 @@
           "type": "Image",
           "config": {
             "label": "ProfileImage",
-            "constraint": {},
+            "constraint": {
+              "width": 750,
+              "height": 750
+            },
             "thumbnails": []
           }
         },
